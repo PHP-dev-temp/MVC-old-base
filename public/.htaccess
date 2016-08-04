@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteBase /MyMVC/public/
+
+# Rewrite if file or directory das't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# We can get url from root as $url = $_SERVER['REQUEST_URI'];
+RewriteRule ^(.*)$ index.php [PT,L]

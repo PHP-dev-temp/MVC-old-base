@@ -1,0 +1,4 @@
+RewriteEngine On
+
+#Rewrite url to public
+RewriteRule ^(.*)$ public/$1 [L]

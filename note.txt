@@ -1,0 +1,22 @@
+1. If public folder have name different then public (example public_html) change this:
+
+MyMVC/.htaccess: 
+	RewriteRule ^(.*)$ public/$1 [L] => RewriteRule ^(.*)$ public_html/$1 [L]
+MyMVC/public/.htaccess:
+	RewriteBase /MyMVC/public/ => RewriteBase /MyMVC/public_html/
+MyMVC/core/init,php
+	define ('PUBLICROOT', dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'public');
+	=> define ('PUBLICROOT', dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'public_html');
+MyMVC/core/config/env.text => prod
+MyMVC/core/config/prod_config
+	Config::setConfig('remove_from_path', array('MyMVC', 'public')); 
+	- probably not needed anything to remove from url
+
+2. Multilanguage
+
+Change in prod_config.php
+    Config::setConfig('languages', array('en', 'sr'));
+    Config::setConfig('multi_languages', true);
+    Config::setConfig('default', array(
+        'language' => 'en',
+    ));

@@ -1,0 +1,15 @@
+CREATE TABLE users(
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(20) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  first_name VARCHAR(50) DEFAULT NULL,
+  last_name VARCHAR(50) DEFAULT NULL,
+  password VARCHAR(255) NOT NULL,
+  active TINYINT NOT NULL,
+  active_hash VARCHAR(255) DEFAULT NULL,
+  recover_hash VARCHAR(255) DEFAULT NULL,
+  remember_identifier VARCHAR(255) DEFAULT NULL,
+  remember_token VARCHAR(255) DEFAULT NULL,
+  created_at TIMESTAMP NOT NULL,
+  PRIMARY KEY(id)
+) ENGINE = InnoDB
